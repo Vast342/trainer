@@ -27,6 +27,7 @@ constexpr std::array<int, 64> inputBuckets = {
 };
 
 inline std::string data = "F:/bullet/bullet-main/data_shuffled.bin";
+inline std::string outputFolder = "F:/ClearTrainer/";
 
 constexpr int    evalScale    = 400;
 constexpr int    batchSize    = 16384;
@@ -38,3 +39,7 @@ constexpr double wdlEnd       = 0.6;
 constexpr double lrStart      = 0.001;
 constexpr double lrMultiplier = 0.3;
 constexpr int    lrStep       = 120;
+
+constexpr int qA = quantisation[0];
+constexpr int qB = quantisation[1];
+constexpr int qAB = qA * qB;
