@@ -17,6 +17,7 @@
 #include <memory>
 #include <cstring>
 #include <filesystem>
+#include <cmath>
 
 // splits a string into segments based on the seperator
 inline std::vector<std::string> split(const std::string string, const char seperator) {
@@ -40,4 +41,20 @@ constexpr int getType(int value) {
 // takes a piece number and gets the color of it
 constexpr int getColor(int value) {
     return value >> 3;
+}
+
+inline int popLSB(uint64_t &bitboard) {
+    const int lsb = std::countr_zero(bitboard);
+    bitboard &= bitboard - 1;
+    return lsb;
+}
+
+inline std::string toBinary(int n) {
+    std::string r;
+    while(n!=0) {r=(n%2==0 ?"0":"1")+r; n/=2;}
+    return r;
+}
+
+inline float sigmoid(int n, int k) {
+    return 1 / (1 + exp(-n / k));
 }

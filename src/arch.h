@@ -9,7 +9,7 @@ inline std::string name = "cn_022";
 
 
 constexpr int  inputSize         = 768;
-constexpr int  inputBucketCount  = 2;
+constexpr int  inputBucketCount  = 0;
 constexpr int  layer1Size        = 768;
 constexpr int  outputBucketCount = 8;
 constexpr bool isMirrored        = true;
@@ -26,8 +26,8 @@ constexpr std::array<int, 64> inputBuckets = {
     1, 1, 1, 1, 3, 3, 3, 3
 };
 
-inline std::string data = "F:/bullet/bullet-main/data_shuffled.bin";
-inline std::string outputFolder = "F:/ClearTrainer/";
+inline std::string data = "C:/data.bin";
+inline std::string outputFolder = "put whatever here";
 
 constexpr int    evalScale    = 400;
 constexpr int    batchSize    = 16384;

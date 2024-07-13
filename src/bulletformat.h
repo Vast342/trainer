@@ -23,11 +23,17 @@ constexpr int colorToMove = 0;
 
 struct TwoPieces {
     uint8_t value;
-    uint8_t getFirst() {
+    uint8_t getSecond() {
         return value & 0b1111;
     }
-    uint8_t getSecond() {
+    uint8_t getFirst() {
         return value >> 4;
+    }
+    uint8_t get(int j) {
+        if(j == 0) return getFirst();
+        if(j == 1) return getSecond();
+        std::cerr << "out of range in TwoPieces.get()" << std::endl;
+        return 10;
     }
 };
 struct BFEntry {

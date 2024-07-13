@@ -9,16 +9,17 @@ int main([[maybe_unused]]int argc, [[maybe_unused]]char** argv) {
     std::cout << "Arch: (768" << (inputBucketCount == 1 ? "" : "x" + std::to_string(inputBucketCount)) << "->" << layer1Size << ")x2->1" << (outputBucketCount == 1 ? "" : "x" + std::to_string(outputBucketCount)) << std::endl;
     std::cout << "Data: " << data << std::endl;
     std::cout << "Number Of Positions: " << (std::filesystem::file_size(data) / 32) << std::endl;
+    std::cout << "Number Of Batches" << (std::filesystem::file_size(data) / 32 / batchSize) << std::endl;
 
     // actually call training
     Network network;
     train(network);
 
     // quantise and save
-    QuantisedNetwork qNetwork(network);
+    /*QuantisedNetwork qNetwork(network);
     std::string outputDirectory = "cn_022-500.nnue";
     std::cout << "writing finished network to " << outputDirectory << std::endl;
-    /* i'll figure this out after I figure out training lol
+    i'll figure this out after I figure out training lol
     std::ofstream out_file(outputDirectory, std::ios::binary);
     if (!out_file) {
         std::cerr << "Error opening output file." << std::endl;
