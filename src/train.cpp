@@ -28,6 +28,8 @@ void train([[maybe_unused]]Network &network) {
                 // add gradient to a sum
             }
             // apply gradient / batchSize (maybe * lr??)
+
+            network.clampWeights();
         }
     }
 }

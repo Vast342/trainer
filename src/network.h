@@ -31,6 +31,20 @@ struct Network {
             outputBiases[i]   = randInRange();
         }
     }
+    void clampWeights() {
+        for(uint32_t i = 0; i < featureWeights.size(); i++) {
+            featureWeights[i] = std::clamp(featureWeights[i], min, max);
+        }
+        for(uint32_t i = 0; i < featureBiases.size(); i++) {
+            featureBiases[i]  = std::clamp(featureBiases[i],  min, max);
+        }
+        for(uint32_t i = 0; i < outputWeights.size(); i++) {
+            outputWeights[i]  = std::clamp(outputWeights[i],  min, max);
+        }
+        for(uint32_t i = 0; i < outputBiases.size(); i++) {
+            outputBiases[i]   = std::clamp(outputBiases[i],   min, max);
+        }
+    }
 };
 
 struct QuantisedNetwork {
