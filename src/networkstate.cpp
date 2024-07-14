@@ -9,7 +9,7 @@ std::pair<uint32_t, uint32_t> NetworkState::getFeatureIndices(int square, int pi
 
 int NetworkState::getFeatureIndex(int square, int piece, int color, int king) {
     int c = getColor(piece) == color ? 0 : 1;
-    if(color == 0) {
+    if(color == 1) {
         square ^= 56;
         king ^= 56;
     }
@@ -35,10 +35,11 @@ NetworkState::NetworkState(Network *net, BFEntry position) {
     int j = 0;
     while(occ != 0) {
         const int index = popLSB(occ);
-        const int piece = 
+        const int piece = position.pieces[i].get(j);
         j++;
         if(j == 2) {
-
+            i++;
+            j = 0;
         }
     }
 }
